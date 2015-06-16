@@ -71,7 +71,9 @@ foreach my $day (sort keys %$r) {
             $aired = $show->{airs_at};
             $banner = $show->{show}->{images}->{banner}->{full};
             $message .= "&nbsp;&nbsp;<b>" . $show->{show}->{title} . "</b><br>";
-            $message .= "&nbsp;&nbsp;<img src=\"" . $banner . "\" width=\"50%\"><br>";
+            if (defined $banner) {
+                $message .= "&nbsp;&nbsp;<img src=\"" . $banner . "\" width=\"50%\"><br>";
+            }
             $message .= "&nbsp;&nbsp;&nbsp;&nbsp;Season $season / episode $number: $title<br>";
             $message .= "&nbsp;&nbsp;&nbsp;&nbsp;Airing time: $aired<br>";
         }
